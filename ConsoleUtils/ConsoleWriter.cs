@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleUtils
+namespace TastysConsoleUtils
 {
     public static class ConsoleWriter
     {
@@ -51,7 +51,7 @@ namespace ConsoleUtils
         public static void ClearChunk(int startHeight, int stopHeight)
         {
             Console.SetCursorPosition(0, startHeight);
-            for(int i = startHeight; i < stopHeight; i++)
+            for (int i = startHeight; i < stopHeight; i++)
             {
                 Console.WriteLine("\b");
             }

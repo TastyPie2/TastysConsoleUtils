@@ -1,6 +1,5 @@
-﻿using ConsoleUtils;
-using static ConsoleUtils.ConsoleWriter;
-using static ConsoleUtils.Prompts;
+﻿using static TastysConsoleUtils.ConsoleWriter;
+using static TastysConsoleUtils.Prompts;
 
 class Program
 {

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUtils", "ConsoleUtils\ConsoleUtils.csproj", "{EEF8F4E1-2B1C-4CB0-BDEC-15D84B28FA02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TastysConsoleUtils", "ConsoleUtils\TastysConsoleUtils.csproj", "{EEF8F4E1-2B1C-4CB0-BDEC-15D84B28FA02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUtilsTest", "ConsoleUtilsTest\ConsoleUtilsTest.csproj", "{995EAE8E-5250-4C63-801A-405B4CBA67E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleUtilsTest", "ConsoleUtilsTest\ConsoleUtilsTest.csproj", "{995EAE8E-5250-4C63-801A-405B4CBA67E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

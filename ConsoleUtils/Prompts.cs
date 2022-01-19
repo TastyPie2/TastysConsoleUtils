@@ -1,6 +1,6 @@
-﻿using static ConsoleUtils.ConsoleWriter;
+﻿using static TastysConsoleUtils.ConsoleWriter;
 
-namespace ConsoleUtils
+namespace TastysConsoleUtils
 {
     public class Prompts
     {
@@ -9,7 +9,7 @@ namespace ConsoleUtils
         private static readonly string arrowUp = @"/\";
         private static readonly string arrowDown = @"\/";
 
-        public static int ListOptions(string[] options ,int defultAwnswer = 0)
+        public static int ListOptions(string[] options, int defultAwnswer = 0)
         {
             Console.WriteLine();
             bool init = false;
@@ -26,7 +26,7 @@ namespace ConsoleUtils
 
             for (; ; )
             {
-                for(int i = 0; i < options.Length; i++)
+                for (int i = 0; i < options.Length; i++)
                 {
                     if (i == result)
                         format[i] = string.Format(options[i], arrowRight);
@@ -47,7 +47,7 @@ namespace ConsoleUtils
                 WriteLines(format.ToArray(), false);
                 ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
 
-                switch(consoleKeyInfo.Key)
+                switch (consoleKeyInfo.Key)
                 {
                     case ConsoleKey.Enter:
                         return result;
@@ -78,20 +78,20 @@ namespace ConsoleUtils
             bool result = defultAwnswer;
             int dialogStartLine = Console.CursorTop;
 
-            for(; ; )
+            for (; ; )
             {
                 string[] dialogText = new string[] { "{0}Yes {1}No", $"To select use \"{arrowLeft}\" or \"{arrowRight}\" and to confirm your selection use \"Enter\"" };
 
                 if (result)
                 {
-                    dialogText[0] = String.Format(dialogText[0], arrowRight, "  ");
+                    dialogText[0] = string.Format(dialogText[0], arrowRight, "  ");
                 }
                 else
                 {
-                    dialogText[0] = String.Format(dialogText[0], "  ", arrowRight);
+                    dialogText[0] = string.Format(dialogText[0], "  ", arrowRight);
                 }
 
-                if(!init)
+                if (!init)
                 {
                     init = true;
                 }
@@ -104,7 +104,7 @@ namespace ConsoleUtils
                 WriteLines(dialogText, false);
 
                 ConsoleKeyInfo keyInfo = Console.ReadKey();
-                switch(keyInfo.Key)
+                switch (keyInfo.Key)
                 {
                     case ConsoleKey.Escape:
                         return false;
