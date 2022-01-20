@@ -1,11 +1,11 @@
-﻿using static TastysConsoleUtils.ConsoleWriter;
+﻿using static TastysConsoleUtils.Writer;
 using static TastysConsoleUtils.Prompts;
 
 class Program
 {
     static void Main()
     {
-        WriteLines(new string[] {"Look", "Ma", "Its", "Alternating", "colors", "do you like it?" });
+        WriteLines(new string[] {"Wow", "alternating", "colors", "do you like it?" });
         
         if(YesNoArrowPrompt(false))
         {
@@ -15,5 +15,7 @@ class Program
         {
             WriteLine("Well i guess its needs more work.");
         }
+
+        PromptOptions(new string[] { "Eine", "Zwei", "Drei" });
     }
 }

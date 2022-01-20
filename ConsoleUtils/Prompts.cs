@@ -1,4 +1,4 @@
-﻿using static TastysConsoleUtils.ConsoleWriter;
+﻿using static TastysConsoleUtils.Writer;
 
 namespace TastysConsoleUtils
 {
@@ -9,7 +9,7 @@ namespace TastysConsoleUtils
         private static readonly string arrowUp = @"/\";
         private static readonly string arrowDown = @"\/";
 
-        public static int ListOptions(string[] options, int defultAwnswer = 0)
+        public static int PromptOptions(string[] options, int defultAwnswer = 0)
         {
             Console.WriteLine();
             bool init = false;
@@ -41,7 +41,6 @@ namespace TastysConsoleUtils
                 else
                 {
                     ClearChunk(dialogStartLine, dialogStartLine + format.Length);
-                    Console.CursorTop = dialogStartLine;
                 }
 
                 WriteLines(format.ToArray(), false);
@@ -98,7 +97,6 @@ namespace TastysConsoleUtils
                 else
                 {
                     ClearChunk(dialogStartLine, dialogStartLine + dialogText.Length);
-                    Console.CursorTop = dialogStartLine;
                 }
 
                 WriteLines(dialogText, false);

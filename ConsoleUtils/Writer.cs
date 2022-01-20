@@ -6,13 +6,31 @@ using System.Threading.Tasks;
 
 namespace TastysConsoleUtils
 {
-    public static class ConsoleWriter
+    public static class Writer
     {
+        /// <summary>
+        /// Choose wheter or not to switch beteewn colors every line.
+        /// </summary>
         public static bool alternatingColors = true;
+        /// <summary>
+        /// First color.
+        /// </summary>
         public static ConsoleColor fgColor0 = ConsoleColor.White;
+        /// <summary>
+        /// Secound color.
+        /// </summary>
         public static ConsoleColor fgColor1 = ConsoleColor.DarkGray;
+        /// <summary>
+        /// Warning text color.
+        /// </summary>
         public static ConsoleColor fgWarnColor = ConsoleColor.Yellow;
+        /// <summary>
+        /// Error text color.
+        /// </summary>
         public static ConsoleColor fgErrorColor = ConsoleColor.Red;
+        /// <summary>
+        /// Background color.
+        /// </summary>
         public static ConsoleColor bgColor = ConsoleColor.Black;
 
         static void AlternateColor()
@@ -42,7 +60,7 @@ namespace TastysConsoleUtils
         public static void Error(string message)
         {
             Console.BackgroundColor = bgColor;
-            Console.ForegroundColor = fgWarnColor;
+            Console.ForegroundColor = fgErrorColor;
             Console.WriteLine(message);
 
             AlternateColor();
@@ -50,6 +68,9 @@ namespace TastysConsoleUtils
 
         public static void ClearChunk(int startHeight, int stopHeight)
         {
+            int cursorTop = Console.CursorTop;
+            int cursorLeft = Console.CursorLeft;
+            
             Console.SetCursorPosition(0, startHeight);
             for (int i = startHeight; i < stopHeight; i++)
             {
@@ -57,6 +78,8 @@ namespace TastysConsoleUtils
             }
 
             AlternateColor();
+            Console.CursorTop = startHeight;
+            Console.CursorLeft = cursorLeft;
         }
 
         public static void Write(object obj, bool timestamp = true)
