@@ -9,9 +9,9 @@ namespace TastysConsoleUtils
     public static class Writer
     {
         /// <summary>
-        /// Choose wheter or not to switch beteewn colors every line.
+        /// Choose wheter or not to switch beteewn colors every line. Note dose not look good
         /// </summary>
-        public static bool alternatingColors = true;
+        public static bool alternatingColors = false;
         /// <summary>
         /// First color.
         /// </summary>
@@ -85,6 +85,7 @@ namespace TastysConsoleUtils
         public static void Write(object obj, bool timestamp = true)
         {
             Console.BackgroundColor = bgColor;
+            Console.ForegroundColor = fgColor0;
 
             if (timestamp)
                 Console.Write($"[{DateTime.Now.TimeOfDay}] {obj}");
@@ -95,6 +96,7 @@ namespace TastysConsoleUtils
         public static void WriteLine(object obj, bool timestamp = true)
         {
             Console.BackgroundColor = bgColor;
+            Console.ForegroundColor = fgColor0;
             AlternateColor();
 
             if (timestamp)
@@ -106,6 +108,7 @@ namespace TastysConsoleUtils
         public static void WriteLines(object[] obj, bool timestamp = true)
         {
             Console.BackgroundColor = bgColor;
+            Console.ForegroundColor = fgColor0;
             foreach (string line in obj)
             {
                 WriteLine(line, timestamp);
