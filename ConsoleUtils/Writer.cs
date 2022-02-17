@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace TastysConsoleUtils
 {
     public static class Writer
-    {
+    {   
+        //Lazy potential optimization?
+        static readonly Lazy<Regex> anyWhiteSpaceLongerThenOne = new Lazy<Regex>() { Value = new Regex("/( \s\s*)/gm")};
+        static readonly Lazy<Regex> itemRegex = new Lazy<Regex>() { Value = new Regex("/(?<=\S)(?*.):\s(\s?\S*)/gm")};
+
         /// <summary>
         /// Choose wheter or not to switch beteewn colors every line. Note dose not look good
         /// </summary>
@@ -105,14 +110,42 @@ namespace TastysConsoleUtils
                 Console.WriteLine(obj);
         }
 
-        public static void WriteLines(object[] obj, bool timestamp = true)
+        public static void WriteLines(object[] obj, bool timestamp = true, bool preserveSpacing = false)
         {
             Console.BackgroundColor = bgColor;
             Console.ForegroundColor = fgColor0;
+
+            StringBuilder sb = new StringBuilder();
             foreach (string line in obj)
             {
-                WriteLine(line, timestamp);
+                if(timestamp)
+                    sb.AppendLine($"[{DateTime.Now.TimeOfDay}] {line}" line);
+                else
+                    sb.AppendLine(line);
             }
+
+            if(preserveSpacing)
+            {
+                ///
+                /// Test: 0  Test: 2
+                ///
+                
+                //This will be a bit complicated
+                string longest = "";
+                foreach(string line in sb)
+                {
+                    if(line.Length > longest.Length)
+                        longest = line;
+                }
+
+                //I will do it again.
+                foreach(string line in sb)
+                {
+                    
+                }
+            }
+
+            WriteLine(sb.ToString(), false);
         }
     }
 }
